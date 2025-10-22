@@ -19,6 +19,14 @@ Route::get('/products', function () {
     return view('products');
 })->middleware('auth')->name('products');
 
+Route::get('/order/complete', function () {
+    return view('order.complete');
+})->name('order.complete');
+
+Route::get('/order/complete_debug', function () {
+    return view('order.complete_debug');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
